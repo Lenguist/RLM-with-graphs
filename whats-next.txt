@@ -1,0 +1,39 @@
+PROGRESS
+========
+- Extracted RLM paper (arXiv:2512.24601v2) to RLM-paper.txt
+- Identified 5 primary evaluation benchmarks
+- Created folder structure for each benchmark
+
+FOLDER STRUCTURE
+================
+sniah/           - S-NIAH (Single Needle-in-a-Haystack), from RULER benchmark
+browsecomp_plus/ - BrowseComp-Plus (1K docs), multi-hop QA over 6-11M token corpus
+oolong/          - OOLONG trec_coarse split, linear complexity aggregation
+oolong_pairs/    - OOLONG-Pairs (our novel variant), quadratic pair aggregation
+longbench_codeqa/ - LongBench-v2 CodeQA, code repo multi-choice QA
+
+WHAT'S NEXT
+===========
+1. Clone the paper's GitHub repo into this root folder:
+      git clone https://github.com/alexzhang13/rlm
+
+2. Review the repo — figure out what evaluation scripts, data loaders,
+   and scaffolding code to reuse vs. rewrite for each benchmark.
+
+3. For each benchmark folder, set up:
+   - data download / prep script
+   - RLM inference script (using their scaffold)
+   - evaluation script matching the paper's metrics
+   - results/ subfolder for outputs
+
+4. Replication targets (from Table 1 in paper):
+   - S-NIAH:          RLM(GPT-5) should approach ~100% at shorter lengths
+   - BrowseComp-Plus: RLM(GPT-5) ~high accuracy vs base model struggling
+   - OOLONG:          RLM outperforms base by ~28-33%
+   - OOLONG-Pairs:    RLM achieves ~58% F1 vs <0.1% for base GPT-5
+   - LongBench CodeQA: RLM outperforms base and other scaffolds
+
+5. Models to evaluate with:
+   - GPT-5 (closed, primary)
+   - Qwen3-Coder-480B-A35B (open, primary)
+   - RLM-Qwen3-8B (fine-tuned small model, if reproducible)

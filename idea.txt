@@ -1,0 +1,8 @@
+our goal is to start with replicating RLM paper resuts on each oftheir bechmark
+
+it shoudl live inside thsi froot folder, with a sparate for lder for each bechamrk/task they applied it for (for example, s separare foldre for oolong)
+
+paper pdf is alreayd here. extrac it into txt, then extract a complete list of their becnahmrks from it. 
+
+then i will also clone their github into here so you can look it over and figur eout what out of there we shoudl use
+
